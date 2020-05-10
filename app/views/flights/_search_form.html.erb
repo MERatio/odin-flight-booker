@@ -1,0 +1,27 @@
+<%= form_with scope: 'search', local: true, url: flights_path, method: 'get' do |f| %>
+  <div class="form-group">
+    <%= f.label :departure, 'Airport departure' %>
+    <%= f.collection_select :departure_id, Airport.all, :id, :code,
+          { selected: @departure }, class: 'form-control custom-select'  %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :arrival, 'Airport arrival' %>
+    <%= f.collection_select :arrival_id, Airport.all, :id, :code, 
+        { selected: @arrival }, class: 'form-control custom-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :num_of_tickets, 'Number of tickets' %>
+    <%= f.select :num_of_tickets, [1, 2, 3, 4], 
+        { selected: @num_of_tickets }, class: 'form-control custom-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :departure_date %>
+    <%= f.select :departure_date, options_from_collection_for_select(Flight.departure_dates, 
+          :departure_date, :departure_date, selected: @departure_date), {}, 
+          class: 'form-control custom-select' %>
+  </div>
+  <%= f.submit 'Search', class: 'btn btn-primary btn-block' %>
+<% end %>

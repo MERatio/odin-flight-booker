@@ -1,0 +1,14 @@
+Airport
+  code:string [present, 3 chars]
+
+  has_many :departing_flights, foreign_key: 'departure_id', class_name: 'Flight'
+  has_many :arriving_flights,  foreign_key: 'arrival_id',   class_name: 'Flight'
+
+Flight
+  departure_id:integer [present]
+  arrival_id:integer [present]
+  departure_date:datetime [present]
+  duration(hours):float [present]
+
+  belongs_to :departure, class_name: 'Airport'
+  belongs_to :arrival,   class_name: 'Airport'
