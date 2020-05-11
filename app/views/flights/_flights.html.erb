@@ -1,0 +1,29 @@
+<%= form_with local: true, url: new_booking_path, method: 'get' do %>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% if @num_of_tickets %>
+          <th scope="col">Select</th>
+        <% end %>
+        <th scope="col">#</th>
+        <th scope="col">Airport Departure</th>
+        <th scope="col">Airport Arrival</th>
+        <th scope="col">Departure Date</th>
+        <th scope="col">Flight Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @flights, num_of_tickets: @num_of_tickets %>
+    </tbody>
+  </table>
+
+  <%= hidden_field_tag 'num_of_tickets', @num_of_tickets %>
+
+  <% if @flights.any? %>
+    <%= will_paginate @events, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    <% if @num_of_tickets %>
+      <%= submit_tag 'Pick Flight', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>

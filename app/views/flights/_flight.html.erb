@@ -1,0 +1,10 @@
+<tr>
+  <% if num_of_tickets %>
+    <td><%= radio_button_tag :flight_id, flight.id %></td>
+  <% end %>
+  <th scope="row"><%= flight.id %></th>
+  <td><%= label_tag "flight_id_#{flight.id}", flight.departure.code %></td>
+  <td><%= label_tag "flight_id_#{flight.id}", flight.arrival.code %></td>
+  <td><%= label_tag "flight_id_#{flight.id}", flight.departure_date %></td>
+  <td><%= label_tag "flight_id_#{flight.id}", "#{flight.duration.round(2)} hours" %></td>
+</tr>
