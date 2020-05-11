@@ -9,10 +9,9 @@ class Flight < ApplicationRecord
   validates :duration,        presence: true
 
   def self.departure_dates
-    Flight.find_by_sql("SELECT DISTINCT departure_date
-                        FROM flights
-                        WHERE departure_date >= datetime('now')
-                        ORDER BY departure_date")
+    Flight.select(:departure_date).distinct
+          .where(['departure_date >= ?', DateTime.current])
+          .order(:departure_date)
   end
 
   def self.upcoming
