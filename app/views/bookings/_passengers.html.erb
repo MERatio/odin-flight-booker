@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Passengers</h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @booking.passengers.each do |passenger| %>
+      <li class="list-group-item">
+        <b>Name:</b> <%= passenger.name %> <br>
+        <b>Email:</b> <%= passenger.email %>
+      </li>
+    <% end %>
+  </ul>
+</div>

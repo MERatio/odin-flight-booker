@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Booking Information</h1>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Flight #:</b> <%= @flight.id %></li>
+    <li class="list-group-item"><b>Airport departure:</b> <%= @flight.departure.code %></li>
+    <li class="list-group-item"><b>Arrival departure:</b> <%= @flight.arrival.code %></li>
+    <li class="list-group-item">
+    <b><%= 'Ticket'.pluralize(1) %>:</b> <%= @num_of_tickets %>
+    </li>
+  </ul>
+</div>

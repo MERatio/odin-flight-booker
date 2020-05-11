@@ -12,3 +12,18 @@ Flight
 
   belongs_to :departure, class_name: 'Airport'
   belongs_to :arrival,   class_name: 'Airport'
+  has_many :bookings
+
+Booking
+  num_of_tickets:integer [present, numeric, 1-4]
+  flight_id:integer [foreign key, present]
+
+  belongs_to :flight
+  has_many :passengers
+
+Passenger
+  name:string [present, 2-60 chars]
+  email:string [present 30 max chars, regex]
+  booking_id:integer [foreign key, present]
+
+  belongs_to :booking
