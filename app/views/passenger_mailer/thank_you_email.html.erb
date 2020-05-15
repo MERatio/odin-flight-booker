@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for booking with us, <%= @passenger.name %></h1>
+    <p>
+      You have successfully booked a flight to Odin Flight.
+    </p>
+    <p>
+      To show your flight booking, just follow this 
+      <%= link_to 'link', @url, target: '_blank', rel: 'noopener noreferrer' %>
+    </p>
+    <p>Thank you and have a great day!</p>
+  </body>
+</html>
